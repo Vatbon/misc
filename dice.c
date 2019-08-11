@@ -26,14 +26,19 @@ int main(int argc, char** argv){
 		size[j - (i + 1)] = argv[1][j];
 	int_amount = atoi(amount);
 	int_size = atoi(size);
+	struct timeval inst;
+	gettimeofday(&inst, NULL);
+	srand(inst.tv_usec);
+	if (int_amount == 1 || argv[1][0] == 'd'){
+		printf("%d\n", rand() % int_size + 1);
+		return 0;
+	}
 	if (int_amount == 0 || int_size == 0)
 		return 0;
 	free(amount);
 	free(size);
 
-	struct timeval inst;
-	gettimeofday(&inst, NULL);
-	srand(inst.tv_usec);
+
 
 	int sum = 0;
 	j = 0;
