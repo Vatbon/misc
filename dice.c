@@ -6,11 +6,11 @@
 #include <immintrin.h>
 
 int customrandom(int a, int b){
-        float result = a - 1;
+        double result = a - 1;
         unsigned int rand;
         while (result < (a - 0.5) || result > (b + 0.5)){
                 _rdrand32_step(&rand);
-                result = (((float)rand) / ((float)UINT_MAX)) * (b - a + 1.0) + (a - 0.5);
+                result = (((double)rand) / ((double)UINT_MAX)) * (b - a + 1.0) + (a - 0.5);
         }
         return (int)round(result);
 }
